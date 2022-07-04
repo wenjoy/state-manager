@@ -31,7 +31,8 @@ const chatStore = {
   clearChat: () => {
     state = initialState
     subject.next(state)
-  }
+  },
+  initialState
 }
 
 export default chatStore

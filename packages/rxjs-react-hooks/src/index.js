@@ -4,6 +4,8 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import FirstPerson from './components/FirstPerson';
+import SecondPerson from './components/SecondPerson';
 
 const container = document.getElementById('root');
 
@@ -12,7 +14,12 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<App />}>
+          <Route path="/" element={<FirstPerson />} />
+          <Route path="/first-person" element={<FirstPerson />} />
+          <Route path="/second-person" element={<SecondPerson />} />
+        </Route>
+        <Route path="*" element={<div>404</div>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import chatStore from '../store/chat';
 
-const FirstPerson = () => {
+const SecondPerson = () => {
   const [chatState, setChatState] = useState(chatStore.initialState);
 
   useLayoutEffect(() => { 
@@ -12,7 +12,7 @@ const FirstPerson = () => {
   const onFormSubmit = e => {
     e.preventDefault()
     const messageObject = {
-      person: 'first-person',
+      person: 'second-person',
       text: e.target.elements.messageInput.value.trim()
     }
     chatStore.sendMessage(messageObject)
@@ -20,7 +20,7 @@ const FirstPerson = () => {
   }
 
   return <div className='container'>
-    <h2>Mycroft</h2>
+    <h2 style={{float: 'right'}}>Cotana</h2>
     <div className="chat-box">
       {chatState.data.map((message, index) => {
         return <div key={index}>
@@ -37,4 +37,4 @@ const FirstPerson = () => {
   </div>
 }
 
-export default FirstPerson
+export default SecondPerson
